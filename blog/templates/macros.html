@@ -1,0 +1,17 @@
+{% macro render_post(post) %}
+<div class="row">
+    <div class="col-md-2 text-right metadata">
+        <ul class="list-unstyled">
+            <li>
+                {{ post.datetime | dateformat("%d/%m/%y") }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <h1>
+            {{ post.title }}
+        </h1>
+        {{ post.content | safe }}
+    </div>
+</div>
+{% endmacro %}
