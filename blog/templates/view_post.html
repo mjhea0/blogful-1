@@ -3,10 +3,7 @@
 
 {% block content %}
 
-{% for post in posts %}
 {{ macros.render_post(post) }}
-{% endfor %}
 
-<p> {{ post }}</p>
 
 {% endblock %}

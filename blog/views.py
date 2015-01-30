@@ -48,9 +48,9 @@ def add_post_post():
     session.commit()
     return redirect(url_for("posts"))
 
-@app.route("/post/<id>")
+@app.route("/post/<int:id>")
 def view_post(id):
-    session.query(Post).get(id)
+    post = session.query(Post).get(id)
     
     return render_template("view_post.html", post=post)
                            
