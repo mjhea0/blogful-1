@@ -1,4 +1,4 @@
-#!/home/action/thinkful/projects/blog/env/bin/python
+#!/Users/michaelherman/repos/github/blogful-1/env/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'alembic==0.7.4','console_scripts','alembic'
 __requires__ = 'alembic==0.7.4'
 import sys
