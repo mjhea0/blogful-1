@@ -1,1 +1,1 @@
-export BLOGFUL_SECRET_KEY = your_secret_key_here
+export BLOGFUL_SECRET_KEY="your_secret_key_here"

@@ -5,6 +5,10 @@ from getpass import getpass
 from werkzeug.security import generate_password_hash
 from blog.models import User
 
+# imports for migration management
+from flask.ext.migrate import Migrate, MigrateCommand
+from blog.database import Base
+
 from blog import app
 from blog.models import Post
 from blog.database import session
@@ -33,7 +37,7 @@ def seed():
 @manager.command
 def adduser():
     name = raw_input("Name: ")
-    emaill = raw_input("Email: ")
+    email = raw_input("Email: ")
     if session.query(User).filter_by(email=email).first():
         print "User with that email address already exists"
         return
@@ -47,6 +51,14 @@ def adduser():
                 password=generate_password_hash(password))
     session.add(user)
     session.commit()
-    
+
+
+class DB(object):
+    def __init__(self, metadata):
+        self.metadata = metadata
+
+migrate = Migrate(app, DB(Base.metadata))
+manager.add_command('db', MigrateCommand)
+
 if __name__ == "__main__":
     manager.run()

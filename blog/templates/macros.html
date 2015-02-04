@@ -15,6 +15,7 @@
             <a href="{{ url_for('delete_post_get', id=post.id) }}">delete</a>
         </h1>
         {{ post.content | safe }}
+        {{ post.author.name }}
     </div>
 </div>
 {% endmacro %}

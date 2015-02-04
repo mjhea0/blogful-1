@@ -16,6 +16,8 @@ from models import User
 #import for login_required decorator to prevent unauthorzied users
 from flask.ext.login import login_required
 
+from flask.ext.login import current_user
+
 @app.route("/")
 @app.route("/page/<int:page>")
 def posts(page=1, paginate_by=10):
