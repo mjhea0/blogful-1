@@ -1,6 +1,6 @@
 import os
 from flask.ext.script import Manager
-#imports for adding a user to the database
+# imports for adding a user to the database
 from getpass import getpass
 from werkzeug.security import generate_password_hash
 from blog.models import User
@@ -15,6 +15,7 @@ from blog.database import session
 
 manager = Manager(app)
 
+
 @manager.command
 def run():
     port = int(os.environ.get('PORT', 8080))
@@ -23,8 +24,16 @@ def run():
 
 @manager.command
 def seed():
-    content = """Lorem ipsum dolor sit amet, consectuetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."""
-    
+    content = """
+        Lorem ipsum dolor sit amet, consectuetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+        """
+
     for i in range(25):
         post = Post(
             title="Test Post #{}".format(i),
@@ -41,13 +50,13 @@ def adduser():
     if session.query(User).filter_by(email=email).first():
         print "User with that email address already exists"
         return
-    
+
     password = ""
     password_2 = ""
     while not (password and password_2) or password != password_2:
         password = getpass("Password: ")
         password_2 = getpass("Re-enter password: ")
-    user = User(name=name, email=email, 
+    user = User(name=name, email=email,
                 password=generate_password_hash(password))
     session.add(user)
     session.commit()
