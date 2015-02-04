@@ -73,12 +73,14 @@ def view_post(id):
 
 
 @app.route("/post/<int:id>/edit", methods=["GET"])
+@login_required
 def edit_post_get(id):
     post = session.query(Post).get(id)
     return render_template("edit_post.html", post=post)
 
 
 @app.route("/post/<int:id>/edit", methods=["POST"])
+@login_required
 def edit_post_post(id):
     post = session.query(Post).get(id)
     post.title = request.form["title"]
@@ -88,18 +90,18 @@ def edit_post_post(id):
     return redirect(url_for("posts"))
 
 
-@app.route("/post/<int:id>/delete", methods=["GET"])
+@app.route("/post/<int:id>/delete", methods=["GET", "POST"])
+@login_required
 def delete_post_get(id):
+    if request.method == "POST":
+        post = session.query(Post).get(id)
+        session.delete(post)
+        session.commit()
+        flash("Message deleted!", "success")
+        return redirect(url_for("posts"))
+
     post = session.query(Post).get(id)
     return render_template("delete_post.html", post=post)
-
-
-@app.route("/post/<int:id>/delete", methods=["POST"])
-def delete_post_post(id):
-    post = session.query(Post).get(id)
-    session.delete(post)
-    session.commit()
-    return redirect(url_for("posts"))
 
 
 @app.route("/login", methods=["GET"])
