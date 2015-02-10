@@ -53,7 +53,7 @@ def posts(page=1, paginate_by=10):
 def add_post():
     if request.method == "POST":
         post = Post(
-            title=request.form["title"],
+            title=request.form.get["title"],
             content=mistune.markdown(request.form["content"]),
             author=current_user
         )
