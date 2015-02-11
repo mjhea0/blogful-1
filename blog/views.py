@@ -52,6 +52,10 @@ def posts(page=1, paginate_by=10):
 #@login_required
 def add_post():
     if request.method == "POST":
+        print("request.form:",request.form)
+        print("title:",request.form["title"])
+        print("content:",request.form["content"])
+        print("author:",current_user)
         post = Post(
             title=request.form["title"],
             content=request.form["content"],
