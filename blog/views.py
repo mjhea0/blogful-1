@@ -49,12 +49,12 @@ def posts(page=1, paginate_by=10):
 
 
 @app.route("/post/add", methods=["GET", "POST"])
-@login_required
+#@login_required
 def add_post():
     if request.method == "POST":
         post = Post(
-            title=request.form.get["title"],
-            content=mistune.markdown(request.form["content"]),
+            title=request.form["title"],
+            content=request.form["content"],
             author=current_user
         )
         session.add(post)
