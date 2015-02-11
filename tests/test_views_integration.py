@@ -36,7 +36,7 @@ class TestViews(unittest.TestCase):
             http_session["user.id"] = str(self.user.id)
             http_session["_fresh"] = True
             
-    def testAddPost(self):
+    def test_add_post(self):
         self.simulate_login()
         
         response = self.client.post("/post/add", data={

@@ -41,7 +41,7 @@ class TestViews(unittest.TestCase):
         Base.metadata.drop_all(engine)
         self.browser.quit()
            
-    def testLoginCorrect(self):
+    def test_login_correct(self):
         self.browser.visit("http://127.0.0.1:5000/login")
         self.browser.fill("email", "alice@example.com")
         self.browser.fill("password", "test")
@@ -49,7 +49,7 @@ class TestViews(unittest.TestCase):
         button.click()
         self.assertEqual(self.browser.url, "http://127.0.0.1:5000/")
 
-    def testLoginIncorrect(self):
+    def test_login_incorrect(self):
         self.browser.visit("http://127.0.0.1:5000/login")
         self.browser.fill("email", "bob@example.com")
         self.browser.fill("password", "test")
