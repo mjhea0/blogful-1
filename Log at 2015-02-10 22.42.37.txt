@@ -1,0 +1,124 @@
+(env)Michaels-MacBook-Pro-3:blogful-1 michaelherman$ nosetests
+........EProcess Process-2:
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 772, in run
+    run_simple(host, port, self, **options)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/werkzeug/serving.py", line 706, in run_simple
+    test_socket.bind((hostname, port))
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 48] Address already in use
+..E
+======================================================================
+ERROR: test_login_correct (test_views_acceptance.TestViews)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/tests/test_views_acceptance.py", line 45, in test_login_correct
+    self.browser.visit("http://127.0.0.1:5000/login")
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/splinter/driver/webdriver/__init__.py", line 174, in visit
+    self.connect(url)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/splinter/request_handler/request_handler.py", line 23, in connect
+    self._create_connection()
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/splinter/request_handler/request_handler.py", line 53, in _create_connection
+    self.conn.endheaders()
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 991, in endheaders
+    self._send_output(message_body)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 844, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 806, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 787, in connect
+    self.timeout, self.source_address)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py", line 571, in create_connection
+    raise err
+error: [Errno 61] Connection refused
+-------------------- >> begin captured logging << --------------------
+selenium.webdriver.remote.remote_connection: DEBUG: POST http://127.0.0.1:53238/wd/hub/session {"desiredCapabilities": {"phantomjs.page.settings.loadImages": true, "platform": "ANY", "browserName": "phantomjs", "version": "", "javascriptEnabled": true}}
+selenium.webdriver.remote.remote_connection: DEBUG: Finished Request
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+ERROR: test_add_post (test_views_integration.TestViews)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/tests/test_views_integration.py", line 40, in test_add_post
+    self.simulate_login()
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/tests/test_views_integration.py", line 35, in simulate_login
+    with self.client.session_transaction() as http_session:
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/testing.py", line 74, in session_transaction
+    raise RuntimeError('Session backend did not open a session. '
+RuntimeError: Session backend did not open a session. Check the configuration
+
+----------------------------------------------------------------------
+Ran 7 tests in 5.026s
+
+FAILED (errors=2)
+(env)Michaels-MacBook-Pro-3:blogful-1 michaelherman$ .E
+======================================================================
+ERROR: test_add_post (test_views_integration.TestViews)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/tests/test_views_integration.py", line 44, in test_add_post
+    "content": "Test content"
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/werkzeug/test.py", line 772, in post
+    return self.open(*args, **kw)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/testing.py", line 108, in open
+    follow_redirects=follow_redirects)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/werkzeug/test.py", line 736, in open
+    response = self.run_wsgi_app(environ, buffered=buffered)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/werkzeug/test.py", line 659, in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/werkzeug/test.py", line 855, in run_wsgi_app
+    app_iter = app(environ, start_response)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/blog/views.py", line 62, in add_post
+    author=current_user
+  File "<string>", line 4, in __init__
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/sqlalchemy/orm/state.py", line 260, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/sqlalchemy/ext/declarative/base.py", line 526, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/sqlalchemy/orm/attributes.py", line 226, in __set__
+    instance_dict(instance), value, None)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/sqlalchemy/orm/attributes.py", line 812, in set
+    value = self.fire_replace_event(state, dict_, value, old, initiator)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/sqlalchemy/orm/attributes.py", line 832, in fire_replace_event
+    state, value, previous, initiator or self._replace_token)
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/sqlalchemy/orm/attributes.py", line 1135, in emit_backref_from_scalar_set_event
+    child_state, child_dict = instance_state(child),\
+  File "/Users/michaelherman/Documents/repos/github/blogful-1/env/lib/python2.7/site-packages/werkzeug/local.py", line 338, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute '_sa_instance_state'
+-------------------- >> begin captured stdout << ---------------------
+('request.form:', ImmutableMultiDict([('content', u'Test content'), ('title', u'Test Post')]))
+('title:', u'Test Post')
+('content:', u'Test content')
+('author:', <flask_login.AnonymousUserMixin object at 0x102a046d0>)
+
+--------------------- >> end captured stdout << ----------------------
+
+----------------------------------------------------------------------
+Ran 7 tests in 5.705s
+
+FAILED (errors=1)
