@@ -34,7 +34,6 @@ class TestViews(unittest.TestCase):
     def simulate_login(self):
         with self.client.session_transaction() as http_session:
             http_session["user.id"] = str(self.user.id)
-            print self.user.name
             http_session["_fresh"] = True
             
     def testAddPost(self):
@@ -54,5 +53,7 @@ class TestViews(unittest.TestCase):
         self.assertEqual(post.title, "Test Post")
         self.assertEqual(post.content, "<p>Test content</p>\n")
         self.assertEqual(post.author, self.user)
+        
+        
 if __name__ == "__main__":
     unittest.main()

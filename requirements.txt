@@ -13,4 +13,6 @@ argparse==1.2.1
 itsdangerous==0.24
 mistune==0.5
 psycopg2==2.5.4
+selenium==2.44.0
+splinter==0.7.0
 wsgiref==0.1.2
